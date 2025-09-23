@@ -51,4 +51,4 @@ Python • Data Structures & Algorithms • FastAPI • Django (Basics) • Git/
 
 ---
 
-Currently on a journey to master Computer Science fundamentals, full-stack development, and modern DevOps practices — with the vision of becoming a skilled MCA graduate and future software engineer.
+Currently on a journey to master Computer Science fundamentals, full-stack development, and modern DevOps practices — with the vision of becoming a skilled MCA graduate and future software engineer. //
