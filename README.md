@@ -47,7 +47,6 @@ Python • Data Structures & Algorithms • FastAPI • Django (Basics) • Git/
 - *DSA in Python* – curated problems with tests & CI  
 - *File Organizer CLI* – organizes downloads by file type  
 - *FastAPI CRUD App* – learning project  
-- (Upcoming) Blog App, Notes API, Weather App  
 
 ---
 
