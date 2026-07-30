@@ -1,80 +1,251 @@
 <div align="center">
 
-<a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=38BDF8&center=true&vCenter=true&width=600&lines=Full-Stack+Developer+(MERN);DevOps+Enthusiast;MCA+Student+%40+COER+University;Building+Production-Grade+Projects" alt="Typing SVG" />
-</a>
+# Tarun Raj Gaur
+
+**Backend-leaning Full-Stack Engineer** — I build systems that stay up, scale predictably, and are easy for the next engineer to reason about.
+
+`MERN` · `FastAPI` · `Docker` · `CI/CD` · `System Design (learning)`
+
+[Portfolio](#) · [LinkedIn](https://www.linkedin.com/in/tarun-raj-gaur-413083270) · [Email](#)
 
 </div>
 
 ---
 
-### 👋 About Me
+## Why I build what I build
 
-I build software that solves real problems — from backend systems and APIs
-to full-stack web applications and developer tools. I focus on writing code
-that's scalable, maintainable, and built to last.
+Most of my projects start from a specific operational annoyance, not a tutorial.
+`[FILL: 2-3 sentences — what's the actual thread connecting ChatWave / ProxiAI /
+PromptCraft? E.g. "I keep building infra-adjacent tools — a proxy, a chat
+system, a testing harness — because I'm more interested in the plumbing than
+the UI."]`
 
-I care deeply about software architecture and clean code, and I enjoy
-studying how strong engineering teams structure their systems to apply
-those principles in my own projects.
-
-Currently building production-grade projects, sharpening DSA, and exploring
-DevOps and cloud architectures.
+I write code assuming someone else (or future me) has to maintain it without
+me in the room. That means tests over cleverness, and explicit tradeoffs over
+"it works on my machine."
 
 ---
 
-### 🛠️ Tech Stack
+## Featured Projects
+
+<details open>
+<summary><b>ChatWave — Real-time chat system with Redis pub/sub</b></summary>
+
+<br>
+
+**Problem:** `[FILL: what specific problem — e.g. "Standard WebSocket chat
+implementations don't handle horizontal scaling; a message sent to a socket
+on server A never reaches a client connected to server B."]`
+
+**Solution:** `[FILL: how Redis pub/sub solves this — the actual mechanism,
+not just "used Redis"]`
+
+**Architecture**
+```
+[FILL: ASCII or linked diagram — client → load balancer → N app servers →
+Redis pub/sub → MongoDB. Even a rough box diagram beats no diagram.]
+```
+
+**Tech stack:** Node.js, Express, Socket.io, Redis, MongoDB, Docker Compose
+
+**Key engineering decisions**
+- `[FILL: e.g. "Chose Redis pub/sub over a message queue because chat needs
+  fan-out, not work distribution — a queue would let only one consumer
+  process each message."]`
+- `[FILL: another real decision + the alternative you rejected and why]`
+
+**Technical challenges**
+- `[FILL: something that actually broke or was hard — e.g. reconnect logic,
+  message ordering, presence detection]`
+
+**Proof**
+- Docker containers: `[FILL: N]` · REST/WS endpoints: `[FILL: N]` · Test coverage: `[FILL: N%]`
+
+📹 `[Demo GIF placeholder]` · 🔗 `[Live demo]` · 💻 `[GitHub repo]` · 📐 `[Architecture diagram]`
+
+</details>
+
+<details>
+<summary><b>ProxiAI — Enterprise AI proxy & audit middleware</b></summary>
+
+<br>
+
+**Problem:** `[FILL: what does an org actually need this for — cost control?
+compliance logging? rate limiting across teams calling an LLM API?]`
+
+**Solution:** `[FILL: what ProxiAI actually intercepts/logs/enforces]`
+
+**Architecture**
+```
+[FILL: client → ProxiAI middleware → provider API, with audit log sink,
+rate limiter, and auth layer shown]
+```
+
+**Tech stack:** `[FILL: your actual stack — FastAPI? Node middleware?]`
+
+**Key engineering decisions**
+- `[FILL]`
+- `[FILL]`
+
+**Technical challenges**
+- `[FILL: e.g. streaming response passthrough while still logging, or
+  handling provider-specific rate limit headers generically]`
+
+**Proof**
+- API latency overhead added: `[FILL: Xms]` · Requests/sec tested: `[FILL]` · Test coverage: `[FILL]`
+
+📹 `[Demo GIF placeholder]` · 🔗 `[Live demo]` · 💻 `[GitHub repo]` · 📐 `[Architecture diagram]`
+
+</details>
+
+<details>
+<summary><b>PromptCraft — Multi-model prompt testing tool (SSE streaming)</b></summary>
+
+<br>
+
+**Problem:** `[FILL: comparing model outputs side-by-side is slow/manual —
+what specifically was painful before this existed?]`
+
+**Solution:** `[FILL: how SSE streaming improves the actual UX/workflow]`
+
+**Architecture**
+```
+[FILL: client → backend → parallel calls to N model APIs → SSE stream
+back to client as each token/response arrives]
+```
+
+**Tech stack:** `[FILL]`
+
+**Key engineering decisions**
+- `[FILL: why SSE over websockets or polling — a real reason, e.g.
+  "one-directional stream, no need for bidirectional complexity"]`
+
+**Technical challenges**
+- `[FILL: e.g. handling partial failures when one model API times out
+  while others are still streaming]`
+
+**Proof**
+- Concurrent model calls tested: `[FILL]` · Lighthouse score: `[FILL]` · CI status: `[FILL: badge]`
+
+📹 `[Demo GIF placeholder]` · 🔗 `[Live demo]` · 💻 `[GitHub repo]` · 📐 `[Architecture diagram]`
+
+</details>
+
+<details>
+<summary><b>PersonalOS — Full-stack personal productivity system</b></summary>
+
+<br>
+
+**Problem:** `[FILL]`
+
+**Solution:** `[FILL]`
+
+**Tech stack:** `[FILL]`
+
+**Key engineering decisions**
+- `[FILL]`
+
+**Technical challenges**
+- `[FILL]`
+
+📹 `[Demo GIF placeholder]` · 🔗 `[Live demo]` · 💻 `[GitHub repo]`
+
+</details>
+
+> ⚠️ **Action item:** Every `[FILL]` above needs a real, specific answer before
+> this goes live. A recruiter or engineer who clicks "expand" and finds
+> placeholders is worse off than one who never expanded it. Fill these from
+> memory of what you actually built — the goal is precision, not polish.
+
+---
+
+## Tech Stack
+
+<table>
+<tr>
+<td valign="top" width="33%">
+
+**Languages & Runtime**
+- JavaScript / TypeScript
+- Python
+- Node.js
+
+</td>
+<td valign="top" width="33%">
+
+**Backend & Data**
+- Express, FastAPI
+- MongoDB, PostgreSQL
+- Redis
+
+</td>
+<td valign="top" width="33%">
+
+**Infra & Tooling**
+- Docker, Docker Compose
+- GitHub Actions (CI/CD)
+- Linux, Azure
+
+</td>
+</tr>
+</table>
+
+---
+
+## System Design — Currently Learning
+
+- [ ] Load balancing strategies (round-robin vs. least-connections vs. consistent hashing)
+- [ ] Caching layers — cache invalidation, write-through vs. write-behind
+- [ ] Database indexing & query optimization
+- [ ] Horizontal scaling patterns for stateful services (WebSocket/chat specifically)
+- [ ] Message queues vs. pub/sub — when each is the right tool
+
+## Engineering Principles I Apply
+
+`SOLID` · `DRY` (without over-abstracting) · `KISS` · dependency injection over
+tight coupling · tests written against behavior, not implementation.
+`[FILL: one real example from a project where you actually applied one of
+these — e.g. "Split ProxiAI's rate limiter into its own module so it could be
+tested independently of the HTTP layer."]`
+
+## DevOps Skills
+
+- Containerizing multi-service apps with Docker Compose
+- CI pipelines via GitHub Actions — `[FILL: what does your pipeline actually
+  run? lint, test, build, deploy?]`
+- Basic cloud deployment on Azure/Vercel — `[FILL: which projects, and what
+  the deploy process looks like]`
+
+## Development Workflow
+
+`[FILL: how do you actually work? e.g. "Feature branches → PR → self-review
+against a checklist → merge. I write the README before the first line of
+implementation code so I'm forced to define scope up front."]`
+
+## Roadmap
+
+- `[FILL: e.g. "Add integration tests to ChatWave — currently unit-tested
+  only"]`
+- `[FILL: e.g. "Contribute a small fix to an open-source project I actually
+  use"]`
+- `[FILL: e.g. "Write up ProxiAI's rate-limiting design as a technical
+  article"]`
+
+## Open Source Contributions
+
+`[FILL — if none yet, be honest: "No external contributions yet — actively
+looking for a first issue to pick up." This is a better line than silence,
+and far better than a fabricated one.]`
+
+## Technical Writing
+
+`[FILL: link if you have any — a design writeup, a blog post, even a detailed
+README counts as a starting point]`
+
+---
 
 <div align="center">
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+<sub>Currently: MCA student @ COER University, building toward backend/full-stack roles.</sub>
 
-</div>
-
----
-
-### 🚀 Featured Projects
-
-- **ChatWave** — Real-time chat application with Redis and Docker Compose
-- **ProxiAI** — Enterprise AI proxy and audit middleware SaaS
-- **PromptCraft** — Multi-model prompt testing tool with SSE streaming
-- **PersonalOS** — Full-stack personal productivity app
-- *(add live deploy links + 1-line "what problem it solves" for each)*
-
----
-
-### 📊 GitHub Stats
-
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=tarun5004&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tarun5004&layout=compact&theme=tokyonight&hide_border=true" />
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=tarun5004&theme=tokyonight&hide_border=true" />
-
-</div>
-
----
-
-### 🎯 Currently Focused On
-
-- Strengthening DSA (Arrays, Strings, LinkedList, Trees, DP)
-- Deepening system design fundamentals
-- Writing tests and improving code quality across projects
-
----
-
-<div align="center">
-<img src="https://komarev.com/ghpvc/?username=tarun5004&style=flat-square&color=38BDF8" alt="profile views" />
 </div>
