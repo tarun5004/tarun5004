@@ -14,87 +14,102 @@
 
 ## Why I build what I build
 
-Most of my projects start from a specific operational annoyance, not a tutorial.
-`[FILL: 2-3 sentences — what's the actual thread connecting ChatWave / ProxiAI /
-PromptCraft? E.g. "I keep building infra-adjacent tools — a proxy, a chat
-system, a testing harness — because I'm more interested in the plumbing than
-the UI."]`
+`[FILL: 2-3 sentences connecting your projects — what's the actual thread?]`
 
-I write code assuming someone else (or future me) has to maintain it without
-me in the room. That means tests over cleverness, and explicit tradeoffs over
+I write code assuming someone else has to maintain it without me in the
+room. That means tests over cleverness, and explicit tradeoffs over
 "it works on my machine."
 
 ---
 
-## Featured Projects
+## Master Project
 
 <details open>
-<summary><b>ChatWave — Real-time chat system with Redis pub/sub</b></summary>
+<summary><b>ProxiAI — Enterprise AI Gateway & Audit Platform</b> <sub>(design complete · implementation in progress)</sub></summary>
 
 <br>
 
-**Problem:** `[FILL: what specific problem — e.g. "Standard WebSocket chat
-implementations don't handle horizontal scaling; a message sent to a socket
-on server A never reaches a client connected to server B."]`
+**Problem:** Organizations using multiple LLM providers (Claude, ChatGPT,
+Gemini) across teams have no central visibility into what's being sent,
+no audit trail for compliance (SOC 2 / ISO 27001), and no continuity plan
+if a provider is suspended or banned — which is not hypothetical: Anthropic's
+Fable 5 / Mythos 5 models were taken offline in June 2026 under U.S.
+export-control action before being restored July 1, 2026. Any org depending
+on a single provider with no fallback loses continuity with zero notice.
 
-**Solution:** `[FILL: how Redis pub/sub solves this — the actual mechanism,
-not just "used Redis"]`
+**Solution:** A middleware SaaS layer that sits between employees and any
+LLM provider — routes requests through infrastructure the org controls,
+scores and masks sensitive data before it leaves the perimeter, falls back
+automatically when a provider degrades, and gives admins real-time
+visibility into cost, usage, and risk.
 
 **Architecture**
 ```
-[FILL: ASCII or linked diagram — client → load balancer → N app servers →
-Redis pub/sub → MongoDB. Even a rough box diagram beats no diagram.]
+Employee → SSE connection → Auth (JWT) → Idempotency check (Redis)
+  → Rate limiter → PII pipeline (Detect → Classify → Score)
+  → Policy Engine (ALLOW / MASK / BLOCK) → Prompt cache (Redis)
+  → Routing Engine (intent + budget + latency + health signals)
+  → Circuit Breaker + Retry/Backoff → Provider Adapter (Groq/Gemini/Claude/BYOK)
+  → SSE stream back to employee
+  → [async] request.completed event → BullMQ workers
+    (billing, analytics, anomaly, audit) → MongoDB (per retention policy)
 ```
+Full diagram and per-subsystem breakdown: [`/docs`](https://github.com/tarun5004/ProxyAi/tree/main/docs)
 
-**Tech stack:** Node.js, Express, Socket.io, Redis, MongoDB, Docker Compose
+**Tech stack:** TypeScript, Node.js/Express, React, MongoDB, Redis, BullMQ,
+Docker (multi-stage builds), GCP Cloud Run, Pino, OpenTelemetry, Prometheus/Grafana
 
 **Key engineering decisions**
-- `[FILL: e.g. "Chose Redis pub/sub over a message queue because chat needs
-  fan-out, not work distribution — a queue would let only one consumer
-  process each message."]`
-- `[FILL: another real decision + the alternative you rejected and why]`
+- **Provider Adapter pattern** — every LLM provider implements the same
+  interface (`complete`, `stream`, `healthCheck`, `estimateCost`). Adding a
+  new provider means writing one adapter file, zero changes elsewhere —
+  Open/Closed Principle applied to a real integration problem, not just
+  named in a bullet list.
+- **Circuit breaker per provider**, not a global one — a failing provider
+  trips independently and the routing engine falls back automatically,
+  rather than one bad provider degrading the whole system.
+- **Redis Pub/Sub over Kafka at this scale** — deliberately not reaching
+  for heavier infrastructure than the problem needs. The event bus sits
+  behind a `publish`/`subscribe` interface, so swapping to Kafka later is
+  a one-file change if throughput ever justifies it.
+- **Retention mode enforced at the write boundary, not after** — a
+  No-Storage org's prompt is never constructed into a MongoDB write in the
+  first place, rather than written then filtered. Safer by construction,
+  not by convention.
 
 **Technical challenges**
-- `[FILL: something that actually broke or was hard — e.g. reconnect logic,
-  message ordering, presence detection]`
+- Mid-stream provider fallback: if a provider fails after SSE streaming has
+  already started, you can't silently splice in a different model's output
+  without a visible glitch — current approach shows an explicit "retrying"
+  message and restarts rather than faking continuity.
+- Idempotency under flaky connections — a double-click or dropped SSE
+  connection shouldn't become two billed LLM calls; handled via `SETNX` on
+  a client-generated request ID with a 5-minute TTL.
 
-**Proof**
-- Docker containers: `[FILL: N]` · REST/WS endpoints: `[FILL: N]` · Test coverage: `[FILL: N%]`
+**Status:** Architecture fully specified across 25 sections (provider
+abstraction, policy engine, event-driven side effects, resilience patterns,
+audit logging, observability, deployment). Implementation in progress —
+this is being built incrementally, not claimed as complete.
 
-📹 `[Demo GIF placeholder]` · 🔗 `[Live demo]` · 💻 `[GitHub repo]` · 📐 `[Architecture diagram]`
+💻 [Repo](https://github.com/tarun5004/ProxyAi) · 📐 [Architecture docs](https://github.com/tarun5004/ProxyAi/tree/main/docs) · 🔗 `[Live demo — once deployed]`
 
 </details>
 
+---
+
+## Other Projects
+
 <details>
-<summary><b>ProxiAI — Enterprise AI proxy & audit middleware</b></summary>
+<summary><b>ChatWave — Real-time chat with Redis pub/sub</b></summary>
 
 <br>
 
-**Problem:** `[FILL: what does an org actually need this for — cost control?
-compliance logging? rate limiting across teams calling an LLM API?]`
+**Problem:** `[FILL]`
+**Solution:** `[FILL]`
+**Tech stack:** Node.js, Express, Socket.io, Redis, MongoDB, Docker Compose
+**Key engineering decisions:** `[FILL]`
 
-**Solution:** `[FILL: what ProxiAI actually intercepts/logs/enforces]`
-
-**Architecture**
-```
-[FILL: client → ProxiAI middleware → provider API, with audit log sink,
-rate limiter, and auth layer shown]
-```
-
-**Tech stack:** `[FILL: your actual stack — FastAPI? Node middleware?]`
-
-**Key engineering decisions**
-- `[FILL]`
-- `[FILL]`
-
-**Technical challenges**
-- `[FILL: e.g. streaming response passthrough while still logging, or
-  handling provider-specific rate limit headers generically]`
-
-**Proof**
-- API latency overhead added: `[FILL: Xms]` · Requests/sec tested: `[FILL]` · Test coverage: `[FILL]`
-
-📹 `[Demo GIF placeholder]` · 🔗 `[Live demo]` · 💻 `[GitHub repo]` · 📐 `[Architecture diagram]`
+💻 `[GitHub repo]` · 🔗 `[Live demo]`
 
 </details>
 
@@ -103,31 +118,12 @@ rate limiter, and auth layer shown]
 
 <br>
 
-**Problem:** `[FILL: comparing model outputs side-by-side is slow/manual —
-what specifically was painful before this existed?]`
-
-**Solution:** `[FILL: how SSE streaming improves the actual UX/workflow]`
-
-**Architecture**
-```
-[FILL: client → backend → parallel calls to N model APIs → SSE stream
-back to client as each token/response arrives]
-```
-
+**Problem:** `[FILL]`
+**Solution:** `[FILL]`
 **Tech stack:** `[FILL]`
+**Key engineering decisions:** `[FILL]`
 
-**Key engineering decisions**
-- `[FILL: why SSE over websockets or polling — a real reason, e.g.
-  "one-directional stream, no need for bidirectional complexity"]`
-
-**Technical challenges**
-- `[FILL: e.g. handling partial failures when one model API times out
-  while others are still streaming]`
-
-**Proof**
-- Concurrent model calls tested: `[FILL]` · Lighthouse score: `[FILL]` · CI status: `[FILL: badge]`
-
-📹 `[Demo GIF placeholder]` · 🔗 `[Live demo]` · 💻 `[GitHub repo]` · 📐 `[Architecture diagram]`
+💻 `[GitHub repo]` · 🔗 `[Live demo]`
 
 </details>
 
@@ -137,25 +133,12 @@ back to client as each token/response arrives]
 <br>
 
 **Problem:** `[FILL]`
-
 **Solution:** `[FILL]`
-
 **Tech stack:** `[FILL]`
 
-**Key engineering decisions**
-- `[FILL]`
-
-**Technical challenges**
-- `[FILL]`
-
-📹 `[Demo GIF placeholder]` · 🔗 `[Live demo]` · 💻 `[GitHub repo]`
+💻 `[GitHub repo]` · 🔗 `[Live demo]`
 
 </details>
-
-> ⚠️ **Action item:** Every `[FILL]` above needs a real, specific answer before
-> this goes live. A recruiter or engineer who clicks "expand" and finds
-> placeholders is worse off than one who never expanded it. Fill these from
-> memory of what you actually built — the goal is precision, not polish.
 
 ---
 
@@ -184,7 +167,7 @@ back to client as each token/response arrives]
 **Infra & Tooling**
 - Docker, Docker Compose
 - GitHub Actions (CI/CD)
-- Linux, Azure
+- Linux, GCP/Azure
 
 </td>
 </tr>
@@ -195,57 +178,24 @@ back to client as each token/response arrives]
 ## System Design — Currently Learning
 
 - [ ] Load balancing strategies (round-robin vs. least-connections vs. consistent hashing)
-- [ ] Caching layers — cache invalidation, write-through vs. write-behind
-- [ ] Database indexing & query optimization
-- [ ] Horizontal scaling patterns for stateful services (WebSocket/chat specifically)
+- [ ] Caching layers — invalidation, write-through vs. write-behind
+- [ ] Database indexing & query optimization at scale
+- [ ] Horizontal scaling for stateful services (WebSocket/SSE specifically)
 - [ ] Message queues vs. pub/sub — when each is the right tool
-
-## Engineering Principles I Apply
-
-`SOLID` · `DRY` (without over-abstracting) · `KISS` · dependency injection over
-tight coupling · tests written against behavior, not implementation.
-`[FILL: one real example from a project where you actually applied one of
-these — e.g. "Split ProxiAI's rate limiter into its own module so it could be
-tested independently of the HTTP layer."]`
-
-## DevOps Skills
-
-- Containerizing multi-service apps with Docker Compose
-- CI pipelines via GitHub Actions — `[FILL: what does your pipeline actually
-  run? lint, test, build, deploy?]`
-- Basic cloud deployment on Azure/Vercel — `[FILL: which projects, and what
-  the deploy process looks like]`
 
 ## Development Workflow
 
-`[FILL: how do you actually work? e.g. "Feature branches → PR → self-review
-against a checklist → merge. I write the README before the first line of
-implementation code so I'm forced to define scope up front."]`
+`[FILL: how do you actually work? e.g. "Design doc before implementation,
+feature branches, self-review against a checklist before merge."]`
 
 ## Roadmap
 
-- `[FILL: e.g. "Add integration tests to ChatWave — currently unit-tested
-  only"]`
-- `[FILL: e.g. "Contribute a small fix to an open-source project I actually
-  use"]`
-- `[FILL: e.g. "Write up ProxiAI's rate-limiting design as a technical
-  article"]`
-
-## Open Source Contributions
-
-`[FILL — if none yet, be honest: "No external contributions yet — actively
-looking for a first issue to pick up." This is a better line than silence,
-and far better than a fabricated one.]`
-
-## Technical Writing
-
-`[FILL: link if you have any — a design writeup, a blog post, even a detailed
-README counts as a starting point]`
+- Finish ProxiAI MVP implementation against the documented architecture
+- `[FILL]`
+- `[FILL]`
 
 ---
 
 <div align="center">
-
-<sub>Currently: MCA student @ COER University, building toward backend/full-stack roles.</sub>
-
+<sub>MCA student @ COER University, building toward backend/full-stack roles.</sub>
 </div>
