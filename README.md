@@ -1,53 +1,80 @@
-# Hi, I’m Tarun  
+<div align="center">
 
-Aspiring MCA Student | Tech Enthusiast | Lifelong Learner  
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=38BDF8&center=true&vCenter=true&width=600&lines=Full-Stack+Developer+(MERN);DevOps+Enthusiast;MCA+Student+%40+COER+University;Building+Production-Grade+Projects" alt="Typing SVG" />
+</a>
 
-I’m building a strong foundation in *Python, Data Structures & Algorithms, Web Development, and DevOps* while preparing for my MCA journey.  
-My vision is to become a skilled full-stack + DevOps engineer with exposure to *AI and Cloud*.  
-
----
-
-## Current Focus  
-- Strengthening *Python mastery* (OOP, modules, virtual environments, error handling)  
-- Practicing *Data Structures & Algorithms*: Arrays, Strings, Linked List, Stack, Queue, Recursion  
-- Maintaining a *DSA in Python repository* and building small automation projects (CLI tools, file organizer)  
+</div>
 
 ---
 
-## Web & API Development  
-- *Frontend:* HTML, CSS, JavaScript → React / Next.js  
-- *Backend:* FastAPI, Django REST  
-- *Databases:* PostgreSQL, MongoDB (Atlas)  
-- *Deployment:* Azure, Vercel, Netlify  
-- *Projects:* Blog App, Notes API, Weather App  
+### 👋 About Me
+
+I build software that solves real problems — from backend systems and APIs
+to full-stack web applications and developer tools. I focus on writing code
+that's scalable, maintainable, and built to last.
+
+I care deeply about software architecture and clean code, and I enjoy
+studying how strong engineering teams structure their systems to apply
+those principles in my own projects.
+
+Currently building production-grade projects, sharpening DSA, and exploring
+DevOps and cloud architectures.
 
 ---
 
-## DevOps & Tools  
-- Linux essentials, Git/GitHub workflows  
-- Docker for containerization  
-- CI/CD pipelines with GitHub Actions + Azure  
-- Example: Dockerized app with automated deployment  
+### 🛠️ Tech Stack
+
+<div align="center">
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+</div>
 
 ---
 
-## AI & Integrations  
-- Basics of AI/ML with *scikit-learn, Hugging Face APIs*  
-- Building *OpenAI API integrations* into apps  
-- Example: AI Blog Assistant (React + FastAPI + OpenAI API)  
+### 🚀 Featured Projects
+
+- **ChatWave** — Real-time chat application with Redis and Docker Compose
+- **ProxiAI** — Enterprise AI proxy and audit middleware SaaS
+- **PromptCraft** — Multi-model prompt testing tool with SSE streaming
+- **PersonalOS** — Full-stack personal productivity app
+- *(add live deploy links + 1-line "what problem it solves" for each)*
 
 ---
 
-## Skills  
-Python • Data Structures & Algorithms • FastAPI • Django (Basics) • Git/GitHub • Linux • OOP • CI/CD • Docker • Azure  
+### 📊 GitHub Stats
+
+<div align="center">
+
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=tarun5004&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tarun5004&layout=compact&theme=tokyonight&hide_border=true" />
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=tarun5004&theme=tokyonight&hide_border=true" />
+
+</div>
 
 ---
 
-## Projects  
-- *DSA in Python* – curated problems with tests & CI  
-- *File Organizer CLI* – organizes downloads by file type  
-- *FastAPI CRUD App* – learning project  
+### 🎯 Currently Focused On
+
+- Strengthening DSA (Arrays, Strings, LinkedList, Trees, DP)
+- Deepening system design fundamentals
+- Writing tests and improving code quality across projects
 
 ---
 
-Currently on a journey to master Computer Science fundamentals, full-stack development, and modern DevOps practices — with the vision of becoming a skilled MCA graduate and future software engineer. //
+<div align="center">
+<img src="https://komarev.com/ghpvc/?username=tarun5004&style=flat-square&color=38BDF8" alt="profile views" />
+</div>
