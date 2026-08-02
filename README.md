@@ -13,7 +13,7 @@ Build. Break. Understand. Ship.
 
 ---
 
-## 🚀 What I'm Building
+## What I'm Building
 
 ```yaml
 ProxiAI:
@@ -49,7 +49,7 @@ Personal OS:
 
 ---
 
-## 🧠 Tech Stack
+## Code • Build • Deploy
 
 **Languages**
 ![](https://skillicons.dev/icons?i=cpp,java,py,cs,php,kotlin,swift)
@@ -77,7 +77,7 @@ Personal OS:
 
 ---
 
-## 📫 Reach Me
+## Reach Me
 
 - LinkedIn: [tarun-raj-gaur](https://www.linkedin.com/in/tarun-raj-gaur-413083270)
 - Threads: [@21gaudd](https://www.threads.com/@21gaudd)
