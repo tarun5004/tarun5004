@@ -1,201 +1,78 @@
-<div align="center">
+# Hi 👋, I'm Tarun Raj Gaur
 
-# Tarun Raj Gaur
+### Backend-first Full-Stack Developer | MERN & FastAPI | DevOps Enthusiast
 
-**Backend-leaning Full-Stack Engineer** — I build systems that stay up, scale predictably, and are easy for the next engineer to reason about.
+I'm an MCA 2nd year student at COER University, Roorkee, building production-grade systems — not just tutorial projects.
 
-`MERN` · `FastAPI` · `Docker` · `CI/CD` · `System Design (learning)`
+I care about understanding what I ship: clean architecture, proper docs (PRDs, SDDs, threat models), and systems that actually hold up past the demo. Currently deep in DSA practice and building out a portfolio of backend-heavy, real-world tools ahead of placements.
 
-[Portfolio](#) · [LinkedIn](https://www.linkedin.com/in/tarun-raj-gaur-413083270) · [Email](#)
+Build. Break. Understand. Ship.
 
-</div>
-
----
-
-## Why I build what I build
-
-`[FILL: 2-3 sentences connecting your projects — what's the actual thread?]`
-
-I write code assuming someone else has to maintain it without me in the
-room. That means tests over cleverness, and explicit tradeoffs over
-"it works on my machine."
+[![GitHub](https://skillicons.dev/icons?i=github)](https://github.com/tarun5004)
+[![LinkedIn](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/tarun-raj-gaur-413083270)
 
 ---
 
-## Master Project
+## 🚀 What I'm Building
 
-<details open>
-<summary><b>ProxiAI — Enterprise AI Gateway & Audit Platform</b> <sub>(design complete · implementation in progress)</sub></summary>
+```yaml
+ProxiAI:
+  desc: Enterprise AI proxy & audit middleware SaaS
+  stack: Node.js, Express, React, MongoDB, Redis + BullMQ, Docker, GCP Cloud Run
+  highlights: Smart Model Router (BYOK + fallback), anomaly detection, PII masking
 
-<br>
+PromptCraft:
+  desc: Multi-model prompt testing tool with SSE streaming
+  stack: Node.js, React, SSE, Google OAuth
+  highlights: Latency tracking, team workspaces
 
-**Problem:** Organizations using multiple LLM providers (Claude, ChatGPT,
-Gemini) across teams have no central visibility into what's being sent,
-no audit trail for compliance (SOC 2 / ISO 27001), and no continuity plan
-if a provider is suspended or banned — which is not hypothetical: Anthropic's
-Fable 5 / Mythos 5 models were taken offline in June 2026 under U.S.
-export-control action before being restored July 1, 2026. Any org depending
-on a single provider with no fallback loses continuity with zero notice.
+AI Chat Clone:
+  desc: Production-grade ChatGPT-style app powered by Mistral API
+  stack: MERN, Mistral API
+  highlights: Streaming responses, markdown rendering, conversation search
 
-**Solution:** A middleware SaaS layer that sits between employees and any
-LLM provider — routes requests through infrastructure the org controls,
-scores and masks sensitive data before it leaves the perimeter, falls back
-automatically when a provider degrades, and gives admins real-time
-visibility into cost, usage, and risk.
+ChatWave:
+  desc: Real-time chat application
+  stack: Node.js, Redis (cache-aside), Docker Compose
+  highlights: Full access/refresh token auth, axios interceptors
 
-**Architecture**
+express-auth-kit:
+  desc: Reusable Express.js auth npm package — published & live
+  stack: Express, Zod, JWT, Google OAuth
+  highlights: Modular API design, security middleware
+
+Personal OS:
+  desc: Full-stack personal productivity app
+  stack: React, Vite, TypeScript, Tailwind, Node.js, MongoDB
+  highlights: Pomodoro timer, behavioral nudges, SVG avatar system
 ```
-Employee → SSE connection → Auth (JWT) → Idempotency check (Redis)
-  → Rate limiter → PII pipeline (Detect → Classify → Score)
-  → Policy Engine (ALLOW / MASK / BLOCK) → Prompt cache (Redis)
-  → Routing Engine (intent + budget + latency + health signals)
-  → Circuit Breaker + Retry/Backoff → Provider Adapter (Groq/Gemini/Claude/BYOK)
-  → SSE stream back to employee
-  → [async] request.completed event → BullMQ workers
-    (billing, analytics, anomaly, audit) → MongoDB (per retention policy)
-```
-Full diagram and per-subsystem breakdown: [`/docs`](https://github.com/tarun5004/ProxyAi/tree/main/docs)
-
-**Tech stack:** TypeScript, Node.js/Express, React, MongoDB, Redis, BullMQ,
-Docker (multi-stage builds), GCP Cloud Run, Pino, OpenTelemetry, Prometheus/Grafana
-
-**Key engineering decisions**
-- **Provider Adapter pattern** — every LLM provider implements the same
-  interface (`complete`, `stream`, `healthCheck`, `estimateCost`). Adding a
-  new provider means writing one adapter file, zero changes elsewhere —
-  Open/Closed Principle applied to a real integration problem, not just
-  named in a bullet list.
-- **Circuit breaker per provider**, not a global one — a failing provider
-  trips independently and the routing engine falls back automatically,
-  rather than one bad provider degrading the whole system.
-- **Redis Pub/Sub over Kafka at this scale** — deliberately not reaching
-  for heavier infrastructure than the problem needs. The event bus sits
-  behind a `publish`/`subscribe` interface, so swapping to Kafka later is
-  a one-file change if throughput ever justifies it.
-- **Retention mode enforced at the write boundary, not after** — a
-  No-Storage org's prompt is never constructed into a MongoDB write in the
-  first place, rather than written then filtered. Safer by construction,
-  not by convention.
-
-**Technical challenges**
-- Mid-stream provider fallback: if a provider fails after SSE streaming has
-  already started, you can't silently splice in a different model's output
-  without a visible glitch — current approach shows an explicit "retrying"
-  message and restarts rather than faking continuity.
-- Idempotency under flaky connections — a double-click or dropped SSE
-  connection shouldn't become two billed LLM calls; handled via `SETNX` on
-  a client-generated request ID with a 5-minute TTL.
-
-**Status:** Architecture fully specified across 25 sections (provider
-abstraction, policy engine, event-driven side effects, resilience patterns,
-audit logging, observability, deployment). Implementation in progress —
-this is being built incrementally, not claimed as complete.
-
-💻 [Repo](https://github.com/tarun5004/ProxyAi) · 📐 [Architecture docs](https://github.com/tarun5004/ProxyAi/tree/main/docs) · 🔗 `[Live demo — once deployed]`
-
-</details>
 
 ---
 
-## Other Projects
+## 🧠 Tech Stack
 
-<details>
-<summary><b>ChatWave — Real-time chat with Redis pub/sub</b></summary>
+**Languages**
+![](https://skillicons.dev/icons?i=cpp,js,ts,py)
 
-<br>
+**Frontend**
+![](https://skillicons.dev/icons?i=react,nextjs,html,css,tailwind)
 
-**Problem:** `[FILL]`
-**Solution:** `[FILL]`
-**Tech stack:** Node.js, Express, Socket.io, Redis, MongoDB, Docker Compose
-**Key engineering decisions:** `[FILL]`
+**Backend**
+![](https://skillicons.dev/icons?i=nodejs,express,fastapi)
 
-💻 `[GitHub repo]` · 🔗 `[Live demo]`
+**Database**
+![](https://skillicons.dev/icons?i=mongodb,postgres,redis)
 
-</details>
+**DevOps & Cloud**
+![](https://skillicons.dev/icons?i=docker,gcp,vercel)
 
-<details>
-<summary><b>PromptCraft — Multi-model prompt testing tool (SSE streaming)</b></summary>
-
-<br>
-
-**Problem:** `[FILL]`
-**Solution:** `[FILL]`
-**Tech stack:** `[FILL]`
-**Key engineering decisions:** `[FILL]`
-
-💻 `[GitHub repo]` · 🔗 `[Live demo]`
-
-</details>
-
-<details>
-<summary><b>PersonalOS — Full-stack personal productivity system</b></summary>
-
-<br>
-
-**Problem:** `[FILL]`
-**Solution:** `[FILL]`
-**Tech stack:** `[FILL]`
-
-💻 `[GitHub repo]` · 🔗 `[Live demo]`
-
-</details>
+**Tools**
+![](https://skillicons.dev/icons?i=git,github,postman,vscode)
 
 ---
 
-## Tech Stack
+## 📫 Reach Me
 
-<table>
-<tr>
-<td valign="top" width="33%">
-
-**Languages & Runtime**
-- JavaScript / TypeScript
-- Python
-- Node.js
-
-</td>
-<td valign="top" width="33%">
-
-**Backend & Data**
-- Express, FastAPI
-- MongoDB, PostgreSQL
-- Redis
-
-</td>
-<td valign="top" width="33%">
-
-**Infra & Tooling**
-- Docker, Docker Compose
-- GitHub Actions (CI/CD)
-- Linux, GCP/Azure
-
-</td>
-</tr>
-</table>
-
----
-
-## System Design — Currently Learning
-
-- [ ] Load balancing strategies (round-robin vs. least-connections vs. consistent hashing)
-- [ ] Caching layers — invalidation, write-through vs. write-behind
-- [ ] Database indexing & query optimization at scale
-- [ ] Horizontal scaling for stateful services (WebSocket/SSE specifically)
-- [ ] Message queues vs. pub/sub — when each is the right tool
-
-## Development Workflow
-
-`[FILL: how do you actually work? e.g. "Design doc before implementation,
-feature branches, self-review against a checklist before merge."]`
-
-## Roadmap
-
-- Finish ProxiAI MVP implementation against the documented architecture
-- `[FILL]`
-- `[FILL]`
-
----
-
-<div align="center">
-<sub>MCA student @ COER University, building toward backend/full-stack roles.</sub>
-</div>
+- LinkedIn: [tarun-raj-gaur](https://www.linkedin.com/in/tarun-raj-gaur-413083270)
+- Threads: [@21gaudd](https://www.threads.com/@21gaudd)
+- Email: *tarunraj7077@gmail.com*
