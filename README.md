@@ -52,22 +52,28 @@ Personal OS:
 ## 🧠 Tech Stack
 
 **Languages**
-![](https://skillicons.dev/icons?i=cpp,js,ts,py)
+![](https://skillicons.dev/icons?i=cpp,java,py,cs,php,kotlin,swift)
 
 **Frontend**
-![](https://skillicons.dev/icons?i=react,nextjs,html,css,tailwind)
+![](https://skillicons.dev/icons?i=nextjs,react,ts,js,html,css,tailwind,materialui,vite,bootstrap)
 
 **Backend**
-![](https://skillicons.dev/icons?i=nodejs,express,fastapi)
+![](https://skillicons.dev/icons?i=nodejs,express,nestjs,bun,graphql,fastapi)
 
 **Database**
-![](https://skillicons.dev/icons?i=mongodb,postgres,redis)
+![](https://skillicons.dev/icons?i=postgres,mongodb,mysql,redis,prisma)
 
-**DevOps & Cloud**
-![](https://skillicons.dev/icons?i=docker,gcp,vercel)
+**Cloud & Hosting**
+![](https://skillicons.dev/icons?i=aws,azure,gcp,firebase,supabase,cloudflare,vercel,netlify)
+
+**DevOps**
+![](https://skillicons.dev/icons?i=docker,kubernetes,nginx,githubactions,linux)
+
+**Messaging & Event Streaming**
+![](https://skillicons.dev/icons?i=kafka,rabbitmq)
 
 **Tools**
-![](https://skillicons.dev/icons?i=git,github,postman,vscode)
+![](https://skillicons.dev/icons?i=git,github,gitlab,vscode,postman,figma)
 
 ---
 
@@ -75,4 +81,4 @@ Personal OS:
 
 - LinkedIn: [tarun-raj-gaur](https://www.linkedin.com/in/tarun-raj-gaur-413083270)
 - Threads: [@21gaudd](https://www.threads.com/@21gaudd)
-- Email: *tarunraj7077@gmail.com*
+- Email: *add your email here*
