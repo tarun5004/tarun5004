@@ -51,28 +51,36 @@ Personal OS:
 
 ## Code • Build • Deploy
 
-**Languages**
+### Languages
+
 ![](https://skillicons.dev/icons?i=cpp,java,py,cs,php,kotlin,swift)
 
-**Frontend**
+### Frontend
+
 ![](https://skillicons.dev/icons?i=nextjs,react,ts,js,html,css,tailwind,materialui,vite,bootstrap)
 
-**Backend**
+### Backend
+
 ![](https://skillicons.dev/icons?i=nodejs,express,nestjs,bun,graphql,fastapi)
 
-**Database**
+### Database
+
 ![](https://skillicons.dev/icons?i=postgres,mongodb,mysql,redis,prisma)
 
-**Cloud & Hosting**
+### Cloud & Hosting
+
 ![](https://skillicons.dev/icons?i=aws,azure,gcp,firebase,supabase,cloudflare,vercel,netlify)
 
-**DevOps**
+### DevOps
+
 ![](https://skillicons.dev/icons?i=docker,kubernetes,nginx,githubactions,linux)
 
-**Messaging & Event Streaming**
+### Messaging & Event Streaming
+
 ![](https://skillicons.dev/icons?i=kafka,rabbitmq)
 
-**Tools**
+### Tools
+
 ![](https://skillicons.dev/icons?i=git,github,gitlab,vscode,postman,figma)
 
 ---
@@ -81,4 +89,4 @@ Personal OS:
 
 - LinkedIn: [tarun-raj-gaur](https://www.linkedin.com/in/tarun-raj-gaur-413083270)
 - Threads: [@21gaudd](https://www.threads.com/@21gaudd)
-- Email: *tarunraj7077@gmail.com*
+- Email: *add your email here*
