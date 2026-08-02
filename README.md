@@ -53,35 +53,35 @@ Personal OS:
 
 ### Languages
 
-![](https://skillicons.dev/icons?i=cpp,java,py,cs,php,kotlin,swift)
+![](https://skillicons.dev/icons?i=cpp,java,py,cs,php,kotlin,swift&perline=6)
 
 ### Frontend
 
-![](https://skillicons.dev/icons?i=nextjs,react,ts,js,html,css,tailwind,materialui,vite,bootstrap)
+![](https://skillicons.dev/icons?i=nextjs,react,ts,js,html,css,tailwind,materialui,vite,bootstrap&perline=6)
 
 ### Backend
 
-![](https://skillicons.dev/icons?i=nodejs,express,nestjs,bun,graphql,fastapi)
+![](https://skillicons.dev/icons?i=nodejs,express,nestjs,bun,graphql,fastapi&perline=6)
 
 ### Database
 
-![](https://skillicons.dev/icons?i=postgres,mongodb,mysql,redis,prisma)
+![](https://skillicons.dev/icons?i=postgres,mongodb,mysql,redis,prisma&perline=6)
 
 ### Cloud & Hosting
 
-![](https://skillicons.dev/icons?i=aws,azure,gcp,firebase,supabase,cloudflare,vercel,netlify)
+![](https://skillicons.dev/icons?i=aws,azure,gcp,firebase,supabase,cloudflare,vercel,netlify&perline=6)
 
 ### DevOps
 
-![](https://skillicons.dev/icons?i=docker,kubernetes,nginx,githubactions,linux)
+![](https://skillicons.dev/icons?i=docker,kubernetes,nginx,githubactions,linux&perline=6)
 
 ### Messaging & Event Streaming
 
-![](https://skillicons.dev/icons?i=kafka,rabbitmq)
+![](https://skillicons.dev/icons?i=kafka,rabbitmq&perline=6)
 
 ### Tools
 
-![](https://skillicons.dev/icons?i=git,github,gitlab,vscode,postman,figma)
+![](https://skillicons.dev/icons?i=git,github,gitlab,vscode,postman,figma&perline=6)
 
 ---
 
@@ -89,4 +89,4 @@ Personal OS:
 
 - LinkedIn: [tarun-raj-gaur](https://www.linkedin.com/in/tarun-raj-gaur-413083270)
 - Threads: [@21gaudd](https://www.threads.com/@21gaudd)
-- Email: *add your email here*
+- Email: [tarunraj7077@gmail.com](mailto:tarunraj7077@gmail.com)
