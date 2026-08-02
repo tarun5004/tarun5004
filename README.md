@@ -81,4 +81,4 @@ Personal OS:
 
 - LinkedIn: [tarun-raj-gaur](https://www.linkedin.com/in/tarun-raj-gaur-413083270)
 - Threads: [@21gaudd](https://www.threads.com/@21gaudd)
-- Email: *add your email here*
+- Email: *tarunraj7077@gmail.com*
